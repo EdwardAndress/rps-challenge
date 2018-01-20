@@ -1,0 +1,7 @@
+%h1 Time to relax with some RPS
+
+%form{ action: 'games/new', method: 'post' }
+  %label{ for: 'name' }
+    Name:
+  %input{ type: 'text', name: 'name' }
+  %input{ type: 'submit', value: 'Play' }
