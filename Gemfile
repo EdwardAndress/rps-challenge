@@ -5,7 +5,6 @@ ruby '2.5.0'
 gem 'haml'
 gem 'rake'
 gem 'sinatra'
-gem 'awesome_print'
 
 group :test do
   gem 'capybara'
