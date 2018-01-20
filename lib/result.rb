@@ -2,7 +2,6 @@ class Result
   attr_reader :player_choice, :computer_choice, :player_name
 
   def initialize(session)
-    puts session.keys
     @player_name = session['player_name']
     @player_choice = session['player_choice']
     @computer_choice = session['computer_choice']
