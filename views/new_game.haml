@@ -1,1 +1,4 @@
-%h1 Welcome #{ locals[:player_name] }
+%h1 Welcome #{ player_name }
+
+%form{ action: '/turns/new', method: 'post' }
+  %input{ type: 'submit', value: 'Rock', name: 'player_choice' }
