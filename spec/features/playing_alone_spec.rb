@@ -1,9 +1,7 @@
 require 'spec_helper'
 
-describe 'playing a game' do
-
+describe 'A game between a humanan and the computer' do
   context 'human player selects Rock' do
-
     before do
       sign_in
       click_button 'Rock'
