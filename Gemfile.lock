@@ -5,6 +5,7 @@ GEM
       public_suffix (~> 2.0, >= 2.0.2)
     ansi (1.5.0)
     ast (2.3.0)
+    awesome_print (1.8.0)
     capybara (2.13.0)
       addressable
       mime-types (>= 1.16)
@@ -12,7 +13,6 @@ GEM
       rack (>= 1.0.0)
       rack-test (>= 0.5.4)
       xpath (~> 2.0)
-    coderay (1.1.2)
     diff-lcs (1.3)
     docile (1.1.5)
     haml (5.0.4)
@@ -20,7 +20,6 @@ GEM
       tilt
     hirb (0.7.3)
     json (2.1.0)
-    method_source (0.9.0)
     mime-types (3.1)
       mime-types-data (~> 3.2015)
     mime-types-data (3.2016.0521)
@@ -30,9 +29,6 @@ GEM
     parser (2.4.0.0)
       ast (~> 2.2)
     powerpack (0.1.1)
-    pry (0.11.3)
-      coderay (~> 1.1.0)
-      method_source (~> 0.9.0)
     public_suffix (2.0.5)
     rack (1.6.5)
     rack-protection (1.5.3)
@@ -85,9 +81,9 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  awesome_print
   capybara
   haml
-  pry
   rake
   rspec
   rubocop

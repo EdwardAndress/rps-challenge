@@ -1,0 +1,11 @@
+%h1 Welcome #{ @result.player_name }
+
+%form{ action: '/play', method: 'post' }
+  %input{ type: 'submit', name: 'player_choice', value: 'Rock'     }
+  %input{ type: 'submit', name: 'player_choice', value: 'Paper'    }
+  %input{ type: 'submit', name: 'player_choice', value: 'Scissors' }
+
+- if @result.player_choice
+  %h3 You chose #{@result.player_choice}
+  %h3 The computer chose #{@result.computer_choice}
+  %h3 #{@result.description}

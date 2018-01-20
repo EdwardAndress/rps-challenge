@@ -13,6 +13,10 @@ describe 'playing a game' do
       expect(page.status_code).to eq 200
     end
 
+    it 'human choice is shown' do
+      expect(page).to have_content("You chose")
+    end
+
     it 'computer choice is shown' do
       expect(page).to have_content("The computer chose")
     end
@@ -24,7 +28,7 @@ describe 'playing a game' do
 end
 
 def sign_in
-  visit ('/')
+  visit('/')
   fill_in :name, with: 'Eddie'
   click_button 'Play'
 end

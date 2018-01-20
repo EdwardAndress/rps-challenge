@@ -1,9 +1,11 @@
 class Result
-  attr_reader :player_choice, :computer_choice
+  attr_reader :player_choice, :computer_choice, :player_name
 
-  def initialize(player_choice, computer_choice)
-    @player_choice = player_choice
-    @computer_choice = computer_choice
+  def initialize(session)
+    puts session.keys
+    @player_name = session['player_name']
+    @player_choice = session['player_choice']
+    @computer_choice = session['computer_choice']
   end
 
   def description
@@ -14,21 +16,9 @@ class Result
 
   def outcomes
     {
-      rock: {
-        paper: 'The computer',
-        scissors: 'You',
-        rock: 'Nobody'
-      },
-      paper: {
-        paper: 'Nobody',
-        scissors: 'The computer',
-        rock: 'You'
-      },
-      scissors: {
-        paper: 'You',
-        scissors: 'Nobody',
-        rock: 'The computer'
-      }
+      rock:     { paper: 'The computer', scissors: 'You', rock: 'Nobody' },
+      paper:    { paper: 'Nobody', scissors: 'The computer', rock: 'You' },
+      scissors: { paper: 'You', scissors: 'Nobody', rock: 'The computer' }
     }
   end
 end
