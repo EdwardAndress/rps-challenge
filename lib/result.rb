@@ -20,6 +20,14 @@ class Result
     {player_one => player_two, player_two => player_one}[winner]
   end
 
+  def winning_weapon
+    {player_one => player_one_choice, player_two => player_two_choice}[winner]
+  end
+
+  def losing_weapon
+    {player_one => player_one_choice, player_two => player_two_choice}[loser]
+  end
+
   private
 
   def outcomes
