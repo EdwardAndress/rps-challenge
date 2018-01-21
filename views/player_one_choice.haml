@@ -1,4 +1,4 @@
-%h1 #{@player_name} choose your weapon
+%h2 #{@player_name.capitalize}, choose your weapon!
 
 %form{ action: '/player_one_choice', method: 'post' }
   %input{ type: 'submit', name: 'player_choice', value: 'Rock'     }

@@ -15,9 +15,13 @@ class RockPaperScissors < Sinatra::Base
     haml :two_player_signup
   end
 
+  get '/one_player_signup' do
+    haml :one_player_signup
+  end
+
   post '/names' do
     session[:player_one] = params[:player_one]
-    session[:player_two] = params[:player_two]
+    session[:player_two] = player_two
     redirect '/player_one_choice'
   end
 
@@ -33,7 +37,12 @@ class RockPaperScissors < Sinatra::Base
 
   get '/player_two_choice' do
     @player_name = session[:player_two]
-    haml :player_two_choice
+    if @player_name == 'Computer'
+      session[:player_two_choice] = Computer.new.choice
+      haml :pause
+    else
+      haml :player_two_choice
+    end
   end
 
   post '/player_two_choice' do
@@ -44,5 +53,10 @@ class RockPaperScissors < Sinatra::Base
   get '/result' do
     @result = Result.new(session)
     haml :result
+  end
+
+  def player_two
+    player_two = params[:player_two]
+    player_two ? player_two : 'Computer'
   end
 end

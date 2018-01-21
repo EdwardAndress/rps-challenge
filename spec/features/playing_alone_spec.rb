@@ -11,16 +11,15 @@ describe 'A game between a humanan and the computer' do
       expect(page.status_code).to eq 200
     end
 
-    it 'human choice is shown' do
-      expect(page).to have_content("You chose")
+    it 'an intermediate screen is shown' do
+      expect(page).to have_content("Click below to do battle")
     end
 
-    it 'computer choice is shown' do
-      expect(page).to have_content("The computer chose")
-    end
-
-    it 'result is shown' do
-      expect(page).to have_content("WON")
+    it 'the outcome is shown' do
+      click_link 'Fight'
+      expect(page).to have_content("After a long and heroic struggle")
+      expect(page).to have_content("Computer")
+      expect(page).to have_content("Eddie")
     end
   end
 end
