@@ -14,7 +14,7 @@ describe 'A game between two humans' do
       expect(page).to have_content("No peeking, Andreia!")
     end
 
-    it "player can choose a weapon" do
+    it "player 1 chooses first and player 2 is then prompted" do
       click_button 'Rock'
       expect(page).to have_content('Andreia, choose your weapon')
     end
@@ -25,7 +25,7 @@ describe 'A game between two humans' do
       expect(page).to have_content('No peeking, Eddie!')
     end
 
-    it 'player 2 can choose a weapon' do
+    it 'player 2 chooses second and the players are prompted' do
       click_button 'Paper'
       expect(page).to have_content('Click to see the result')
     end
@@ -34,7 +34,7 @@ end
 
 def human_vs_human_sign_in
   visit '/'
-  click_button 'Human vs Human'
+  click_link 'Human vs Human'
   fill_in :player_one, with: 'Eddie'
   fill_in :player_two, with: 'Andreia'
   click_button 'Play'

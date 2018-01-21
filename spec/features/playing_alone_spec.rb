@@ -27,6 +27,7 @@ end
 
 def sign_in
   visit('/')
-  fill_in :name, with: 'Eddie'
+  click_link 'Human vs Computer'
+  fill_in :player_one, with: 'Eddie'
   click_button 'Play'
 end

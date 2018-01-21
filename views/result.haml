@@ -1,0 +1,9 @@
+%h1 After a long and heroic struggle...
+
+- if @result.draw?
+	%h3 #{ @result.player_one } and #{ @result.player_two } could continue no longer.
+	%he They agreed to call it a draw and resume battle on another day.
+
+- else
+	%h3 #{ @result.winner } emerges victorious, #{ @result.winning_weapon } in hand
+	%h3 #{ @result.loser } lives to fight another day, but will they choose #{ @result.losing_weapon } again?

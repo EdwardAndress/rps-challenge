@@ -1,23 +1,32 @@
 class Result
-  attr_reader :player_choice, :computer_choice, :player_name
+  attr_reader :player_one_choice, :player_two_choice, :player_one, :player_two
 
   def initialize(session)
-    @player_name = session['player_name']
-    @player_choice = session['player_choice']
-    @computer_choice = session['computer_choice']
+    @player_one = session['player_one']
+    @player_two = session['player_two']
+    @player_one_choice = session['player_one_choice']
+    @player_two_choice = session['player_two_choice']
   end
 
-  def description
-    outcomes[player_choice][computer_choice] + " WON"
+  def draw?
+    outcomes[player_one_choice][player_two_choice] == 'draw'
+  end
+
+  def winner
+    outcomes[player_one_choice][player_two_choice]
+  end
+
+  def loser
+    {player_one => player_two, player_two => player_one}[winner]
   end
 
   private
 
   def outcomes
     {
-      rock:     { paper: 'The computer', scissors: 'You', rock: 'Nobody' },
-      paper:    { paper: 'Nobody', scissors: 'The computer', rock: 'You' },
-      scissors: { paper: 'You', scissors: 'Nobody', rock: 'The computer' }
+      rock:     { paper: player_two, scissors: player_one, rock: 'draw' },
+      paper:    { paper: 'draw', scissors: player_two, rock: player_one },
+      scissors: { paper: player_one, scissors: 'draw', rock: player_two }
     }
   end
 end
