@@ -1,0 +1,7 @@
+%h1 Please enter your name/s to get started
+
+%form{action: '/names', method: 'post' }
+	- @player_numbers.each do |number|
+		%label{ for: "player_#{ number }" } Player #{ number }:
+		%input{ type: 'text', name: "player_#{ number }" }
+	%input{ type: 'submit', value: 'Play' }
